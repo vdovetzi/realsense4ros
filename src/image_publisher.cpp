@@ -17,14 +17,14 @@ int main(int argc, const char **argv) {
   auto node = rclcpp::Node::make_shared("image_publisher");
 
   node->declare_parameter<std::string>("camera_frame", "realsense");
-  node->declare_parameter<std::string>("input_topic", "realsense/image");
+  node->declare_parameter<std::string>("output_topic", "realsense/image");
 
   auto camera_frame = node->get_parameter("camera_frame").as_string();
-  auto input_topic = node->get_parameter("input_topic").as_string();
+  auto output_topic = node->get_parameter("output_topic").as_string();
 
   auto it = std::make_unique<ImageTransport>(node);
 
-  auto pub = std::make_unique<Publisher>(it->advertise(input_topic, 10));
+  auto pub = std::make_unique<Publisher>(it->advertise(output_topic, 10));
 
   rs2::pipeline p;
   p.start();
