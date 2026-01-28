@@ -41,11 +41,11 @@ ros2 run realsense4ros image_publisher
 ```
 ### Parameters
 - `camera_frame` (string, default: "realsense"): TF frame ID for the camera
-- `input_topic` (string, default: "realsense/image"): Topic to publish images to
+- `output_topic` (string, default: "realsense/image"): Topic to publish images to
 
 Example with custom parameters:
 ```bash
-ros2 run realsense4ros image_publisher --ros-args -p camera_frame:=camera_link -p input_topic:=/camera/color/image_raw
+ros2 run realsense4ros image_publisher --ros-args -p camera_frame:=camera_link -p output_topic:=/camera/color/image_raw
 ```
 
 ## Troubleshooting
